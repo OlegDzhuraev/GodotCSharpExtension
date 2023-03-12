@@ -16,12 +16,19 @@ So, now there is API to Raycast like in Unity:
 var viewport = GetViewport();
 var from = new Vector2(0, 50);
 var to = new Vector2(50, 50);
-RaycastHit2D hit = new RaycastHit2D();
+RaycastHit2D hit = new RaycastHit2D(); // you can cache it once and reuse for periodic raycasts
 if (PhysicsExt.Raycast2D(viewport, from, to, ref hit)) // also supports collision mask
 {
   GD.Print(hit.Position);
-  GD.Print(hit.Collider);
+  GD.Print(hit.Node); // Node2D of the hitted collider
   GD.Print(hit.Normal);
+}
+
+// short usage
+RaycastHit2D hit = new RaycastHit2D();
+if (PhysicsExt.Raycast2D(GetViewport(), new Vector2(0, 50), new Vector2(50, 50), ref hit))
+{
+  // do something
 }
 ```
 
