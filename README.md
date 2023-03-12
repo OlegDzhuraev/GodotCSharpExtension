@@ -5,6 +5,7 @@ All of these extensions is a subject to change, since now I'm only exploring a G
 
 ## How to install
 Download sources and drop it to your project folder. Possible, in future it will be made as plugin, but now there is no need to do it this way.
+
 Add `using InsaneOne.GodotExt;` at start of your scripts, which use extensions.
 
 ## Physics Extensions
@@ -28,7 +29,8 @@ Same can be used for 3D.
 
 ## Transform extension
 In class, extends Node2D, you can now use `this.GetUp()` and `this.GetRight()` to get a node direction vector (like Unity transform.up), instead of usage of BasisXform.
-Same things exist in Node3D, but it is recommended to use Basis instead.
+
+Same extensions was made for Node3D, but I recommend to use Basis instead.
 
 ## License
 MIT
