@@ -16,7 +16,7 @@ So, now there is API to Raycast like in Unity:
 var viewport = GetViewport();
 var from = new Vector2(0, 50);
 var to = new Vector2(50, 50);
-RaycastHit2D hit = new RaycastHit2D(); // you can cache it once and reuse for periodic raycasts
+var hit = new RaycastHit2D(); // you can cache it once and reuse for periodic raycasts
 if (PhysicsExt.Raycast2D(viewport, from, to, ref hit)) // also supports collision mask
 {
   GD.Print(hit.Position);
@@ -25,14 +25,31 @@ if (PhysicsExt.Raycast2D(viewport, from, to, ref hit)) // also supports collisio
 }
 
 // short usage
-RaycastHit2D hit = new RaycastHit2D();
+var hit = new RaycastHit2D();
 if (PhysicsExt.Raycast2D(GetViewport(), new Vector2(0, 50), new Vector2(50, 50), ref hit))
+{
+  // do something
+}
+
+// 3d version
+var hit = new RaycastHit3D();
+if (PhysicsExt.Raycast3D(GetViewport(), new Vector3(0, 1, 0), new Vector3(2, 3, 5), ref hit))
 {
   // do something
 }
 ```
 
-Same can be used for 3D.
+Raycast from the game camera:
+
+```cs
+
+var hit = new RaycastHit3D();
+var vp = GetViewport();
+if (PhysicsExt.RaycastFromCamera3D(vp.GetCamera3D(), vp.GetMousePosition(), ref hit))
+{
+  // do smth
+}
+ ```
 
 ## Transform extension
 In class, extends Node2D, you can now use `this.GetUp()` and `this.GetRight()` to get a node direction vector (like Unity transform.up), instead of usage of BasisXform.
